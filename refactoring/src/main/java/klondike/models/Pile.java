@@ -69,7 +69,7 @@ public class Pile extends CardStack {
 		return this.numberOfFaceUpCards;
 	}
 
-	public boolean empty() {
+	public boolean isEmpty() {
 		return this.cards.empty();
 	}
 

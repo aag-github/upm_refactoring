@@ -10,7 +10,7 @@ public abstract class CardStack {
         this.cards = new Stack<Card>();
     }
 
-    public boolean empty() {
+    public boolean isEmpty() {
         return this.cards.empty();
     }
 

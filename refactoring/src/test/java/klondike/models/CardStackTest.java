@@ -28,14 +28,14 @@ public abstract class CardStackTest {
 	@Test
 	public void testEmptyWithEmpty() {
 		CardStack cardStack = this.createCardStack();
-		assertTrue(cardStack.empty());
+		assertTrue(cardStack.isEmpty());
 	}
 	
 	@Test
 	public void testEmptyWithNotEmpty() {
 		CardStack cardStack = this.createCardStack();
 		cardStack.push(this.getCards().get(0));
-		assertFalse(cardStack.empty());
+		assertFalse(cardStack.isEmpty());
 	}
 
 	@Test
@@ -58,7 +58,7 @@ public abstract class CardStackTest {
 		CardStack cardStack = this.createCardStack();
 		cardStack.push(this.getCards().get(0));
 		assertEquals(this.getCards().get(0), cardStack.pop());
-		assertTrue(cardStack.empty());
+		assertTrue(cardStack.isEmpty());
 	}
 	
 	@Test

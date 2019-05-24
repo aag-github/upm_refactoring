@@ -70,7 +70,7 @@ public class StockTest extends CardStackTest {
 		Stock stock = new Stock();
 		List<Card> cardList = stock.pop(StockTest.NUMBER_CARDS);
 		assertEquals(StockTest.NUMBER_CARDS, cardList.size());
-		assertTrue(stock.empty());
+		assertTrue(stock.isEmpty());
 	}
 	
 }

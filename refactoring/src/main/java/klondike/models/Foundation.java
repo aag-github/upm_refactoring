@@ -17,7 +17,7 @@ public class Foundation extends CardStack {
         assert card != null;
         return card.getSuit() == this.suit &&
                 (card.getNumber() == Number.AS ||
-                        (!this.empty() && card.isNextTo(this.peek())));
+                        (!this.isEmpty() && card.isNextTo(this.peek())));
     }
 
     public Suit getSuit() {

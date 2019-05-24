@@ -99,7 +99,7 @@ public class PileTest extends CardStackTest {
 		pile.push(new CardBuilder().number(Number.SEVEN).suit(Suit.PIKES).facedUp().build());
 		pile.remove(4);
 		assertTrue(pile.pop().isFacedUp());
-		assertTrue(pile.empty());
+		assertTrue(pile.isEmpty());
 	}
 
 }
