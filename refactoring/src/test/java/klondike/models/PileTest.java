@@ -48,7 +48,7 @@ public class PileTest extends CardStackTest {
 	@Test(expected = AssertionError.class)
 	public void testGetTopOneWrongIsNotFaceUp() {
 		Pile pile = new PileBuilder().card().card().build();
-		pile.getTop(2);
+		pile.peek(2);
 	}
 
 	@Test
@@ -73,7 +73,7 @@ public class PileTest extends CardStackTest {
 		for (Card card : cards) {
 			pile.push(card);
 		}
-		assertEquals(cards, pile.getTop(cards.size()));
+		assertEquals(cards, pile.peek(cards.size()));
 	}
 
 	@Test
@@ -87,7 +87,7 @@ public class PileTest extends CardStackTest {
 				.card(new CardBuilder().number(Number.SEVEN).suit(Suit.PIKES).facedUp().build()).build();
 		pile.addToTop(cards);
 		cards.add(0, topCard);
-		assertEquals(cards, pile.getTop(cards.size()));
+		assertEquals(cards, pile.peek(cards.size()));
 	}
 
 	@Test
