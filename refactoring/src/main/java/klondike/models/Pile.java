@@ -40,7 +40,7 @@ public class Pile extends CardStack {
 	public boolean fitsIn(Card card) {
 		assert card != null;
 		return (this.cards.empty() && card.getNumber() == Number.KING) || (!this.cards.empty()
-				&& this.cards.peek().isNextTo(card) && this.cards.peek().getColor() != card.getColor());
+				&& this.cards.peek().isNumberNextTo(card) && this.cards.peek().getColor() != card.getColor());
 	}
 
 	public List<Card> peek(int numberOfCards) {

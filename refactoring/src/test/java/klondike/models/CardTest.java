@@ -32,7 +32,7 @@ public class CardTest {
 	void testIsNextTo(Number firstNumber, Number secondNumber) {
 		Card firstCard = new CardBuilder().number(firstNumber).build();
 		Card secondCard = new CardBuilder().number(secondNumber).build();
-		assertTrue(firstCard.isNextTo(secondCard));
+		assertTrue(firstCard.isNumberNextTo(secondCard));
 	}
 	
 	@Test
@@ -44,7 +44,7 @@ public class CardTest {
 	void testIsNotNextTo(Number firstNumber, Number secondNumber) {
 		Card firstCard = new CardBuilder().number(firstNumber).build();
 		Card secondCard = new CardBuilder().number(secondNumber).build();
-		assertFalse(firstCard.isNextTo(secondCard));
+		assertFalse(firstCard.isNumberNextTo(secondCard));
 	}
 
 }
