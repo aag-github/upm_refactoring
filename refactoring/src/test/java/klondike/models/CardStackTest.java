@@ -19,6 +19,9 @@ public abstract class CardStackTest {
 		List<Card> cards = new ArrayList<Card>();
 		cards.add(new CardBuilder().build());
 		cards.add(new CardBuilder().build());
+		for(Card card : cards) {
+		    card.flip();
+		}
 		return cards;
 	}
 	
