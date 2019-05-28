@@ -33,15 +33,26 @@ public class Pile extends CardStack {
 	}
 
 	private void flipFirstCard() {
-		assert !this.cards.empty() && this.numberOfFaceUpCards == 0 && !this.cards.peek().isFacedUp();
+		assert !this.cards.empty()
+		        && this.numberOfFaceUpCards == 0 
+		        && !this.cards.peek().isFacedUp();
+		
 		this.cards.peek().flip();
 		this.numberOfFaceUpCards++;
 	}
 
 	public boolean fitsIn(Card card) {
 		assert card != null;
-		return (this.cards.empty() && card.getNumber() == Number.KING) || (!this.cards.empty()
-				&& this.cards.peek().isNumberNextTo(card) && this.cards.peek().getColor() != card.getColor());
+		
+		if (this.cards.empty()) {
+		    return (card.getNumber() == Number.KING);
+		}
+		else {
+		    boolean cardIsNextLower = this.cards.peek().isNumberNextTo(card);
+		    boolean cardHasDifferentColor = this.cards.peek().getColor() != card.getColor();
+		    
+		    return cardIsNextLower && cardHasDifferentColor;
+		}
 	}
 
 	public List<Card> peek(int numberOfCards) {
