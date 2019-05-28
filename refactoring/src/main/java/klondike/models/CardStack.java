@@ -15,6 +15,7 @@ public abstract class CardStack {
     }
 
     public Card peek() {
+        assert(this.cards.size() > 0);        
         return this.cards.peek();
     }
 
