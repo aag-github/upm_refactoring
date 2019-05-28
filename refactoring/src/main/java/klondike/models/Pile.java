@@ -20,6 +20,7 @@ public class Pile extends CardStack {
 
 	@Override
 	public void push(Card card) {
+        assert(card != null);
 		assert this.fitsIn(card);
 		super.push(card);
 		this.numberOfFaceUpCards++;

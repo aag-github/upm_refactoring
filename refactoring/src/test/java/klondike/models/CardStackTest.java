@@ -80,5 +80,12 @@ public abstract class CardStackTest {
     public void testPeekOnEmptyStack() {
         CardStack cardStack = this.createCardStack();
         cardStack.peek();
-    }	
+    }
+
+    @Test(expected = AssertionError.class)
+    public void testPushWithNullCard() {
+        CardStack cardStack = this.createCardStack();
+        cardStack.push(null);
+    }
+
 }
