@@ -15,9 +15,12 @@ public class Foundation extends CardStack {
 
     public boolean fitsIn(Card card) {
         assert card != null;
-        return card.getSuit() == this.suit &&
-                (card.getNumber() == Number.AS ||
-                        (!this.isEmpty() && card.isNumberNextTo(this.peek())));
+
+        boolean cardIsSameSuiteAsPile = card.getSuit() == this.suit;
+        boolean cardIsAnAce = (card.getNumber() == Number.AS);
+        boolean cardIsNextHigher = !this.isEmpty() && card.isNumberNextTo(this.peek()); 
+        return (cardIsSameSuiteAsPile) 
+               && (cardIsAnAce || cardIsNextHigher); 
     }
 
     public Suit getSuit() {
