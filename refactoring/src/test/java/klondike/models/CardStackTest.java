@@ -69,4 +69,10 @@ public abstract class CardStackTest {
 		assertEquals(this.getCards().get(1), cardStack.pop());
 		assertEquals(this.getCards().get(0), cardStack.peek());
 	}
+
+	@Test(expected = AssertionError.class)
+	public void testPopOnEmptyStack() {
+	    CardStack cardStack = this.createCardStack();
+	    cardStack.pop();
+	}
 }

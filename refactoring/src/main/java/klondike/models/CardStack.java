@@ -19,6 +19,7 @@ public abstract class CardStack {
     }
 
     public Card pop() {
+        assert(this.cards.size() > 0);
         return this.cards.pop();
     }
 
