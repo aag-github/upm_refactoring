@@ -97,9 +97,10 @@ public class PileTest extends CardStackTest {
 		pile.push(new CardBuilder().number(Number.NINE).suit(Suit.CLOVERS).facedUp().build());
 		pile.push(new CardBuilder().number(Number.EIGHT).suit(Suit.DIAMONDS).facedUp().build());
 		pile.push(new CardBuilder().number(Number.SEVEN).suit(Suit.PIKES).facedUp().build());
-		pile.remove(4);
+		pile.drop(4);
 		pile.flipFirstCardIfAllFacedDown();
-		assertTrue(pile.pop().isFacedUp());
+		assertTrue(pile.peek().isFacedUp());
+		pile.drop();
 		assertTrue(pile.isEmpty());
 	}
 

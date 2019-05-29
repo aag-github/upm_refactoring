@@ -41,7 +41,7 @@ public class GameTest {
 			Pile pile = piles.get(i);
 			for (int j = 0; j < i + 1; j++) {
 				Card card = pile.peek();
-				pile.remove(1);
+				pile.drop(1);
 				pile.flipFirstCardIfAllFacedDown();
 				assertTrue(card.isFacedUp());
 			}
@@ -53,7 +53,8 @@ public class GameTest {
 		int cardsInPiles = this.cardsInStock(game);
 		Stock stock = game.getStock();
 		for (int i = 0; i < Number.values().length * Suit.values().length - cardsInPiles; i++) {
-			Card card = stock.pop();
+			Card card = stock.peek();
+			stock.drop();
 			assertFalse(card.isFacedUp());
 		}
 		assertTrue(stock.isEmpty());
@@ -92,7 +93,7 @@ public class GameTest {
 	private void setEmptyStock(Game game) {
 		Stock stock = game.getStock();
 		while (!stock.isEmpty()) {
-			stock.pop();
+			stock.drop();
 		}
 	}
 
@@ -159,7 +160,7 @@ public class GameTest {
 	}
 
 	private void setEmptyPile(Game game, int position) {
-		game.getPiles().get(position).pop();
+		game.getPiles().get(position).drop();
 	}
 
 	@Test
@@ -175,7 +176,7 @@ public class GameTest {
 	private Card setPile(Game game, int position, Number number, Suit suit) {
 		Pile pile = game.getPiles().get(position);
 		while (!pile.isEmpty()) {
-			pile.pop();
+			pile.drop();
 		}
 		int ordinalNumber = Number.values().length - 1;
 		int ordinalSuit = 0;

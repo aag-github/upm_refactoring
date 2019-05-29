@@ -36,9 +36,9 @@ public class Stock implements CardStackInterface {
         return this.cards.peek();
     }
 
-    public Card pop() {
+    public void drop() {
         assert(this.cards.size() > 0);
-        return this.cards.pop();
+        this.cards.pop();
     }
 
     public void push(Card card) {

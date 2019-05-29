@@ -7,7 +7,7 @@ public class EmptyStockBuilder {
 	public Stock build() {
 		Stock stock = new Stock();
 		while (!stock.isEmpty()) {
-			stock.pop();
+			stock.drop();
 		}
 		return stock;
 	}
