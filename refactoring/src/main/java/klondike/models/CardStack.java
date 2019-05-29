@@ -2,16 +2,12 @@ package klondike.models;
 
 import java.util.Stack;
 
-public class CardStack implements CardStackInterface {
+public class CardStack {
 
     protected Stack<Card> cards;
 
     public CardStack() {
         this.cards = new Stack<Card>();
-    }
-
-    public boolean isEmpty() {
-        return this.cards.empty();
     }
 
     public Card peek() {

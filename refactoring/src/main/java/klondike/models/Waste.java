@@ -15,7 +15,7 @@ public void push(Card card) {
 }
 
 public boolean isEmpty() {
-    return this.cardStack.isEmpty();
+    return this.cardStack.cards.empty();
 }
 
 public Card peek() {

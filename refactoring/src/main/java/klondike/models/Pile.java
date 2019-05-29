@@ -91,7 +91,7 @@ public class Pile implements CardStackInterface {
 	}
 
     public boolean isEmpty() {
-        return this.cardStack.isEmpty();
+        return this.cardStack.cards.empty();
     }
 
     public Card peek() {
