@@ -10,6 +10,7 @@ public class Stock extends CardStack {
     
     public Stock() {
         super();
+        this.cardStack = new CardStack();
         for (Suit suit : Suit.values()) {
             for (Number number : Number.values()) {
                 this.cards.add(new Card(suit, number));

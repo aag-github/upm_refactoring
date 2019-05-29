@@ -13,7 +13,7 @@ import klondike.models.builders.CardBuilder;
 
 public abstract class CardStackTest {
 
-	protected abstract CardStack createCardStack();
+	protected abstract CardStackInterface createCardStack();
 	
 	protected List<Card> getCards(){
 		List<Card> cards = new ArrayList<Card>();
@@ -27,27 +27,27 @@ public abstract class CardStackTest {
 	
 	@Test
 	public void testEmptyWithEmpty() {
-		CardStack cardStack = this.createCardStack();
+	    CardStackInterface cardStack = this.createCardStack();
 		assertTrue(cardStack.isEmpty());
 	}
 	
 	@Test
 	public void testEmptyWithNotEmpty() {
-		CardStack cardStack = this.createCardStack();
+	    CardStackInterface cardStack = this.createCardStack();
 		cardStack.push(this.getCards().get(0));
 		assertFalse(cardStack.isEmpty());
 	}
 
 	@Test
 	public void testPushWithEmpty() {
-		CardStack cardStack = this.createCardStack();
+	    CardStackInterface cardStack = this.createCardStack();
 		cardStack.push(this.getCards().get(0));
 		assertEquals(this.getCards().get(0), cardStack.peek());
 	}
 	
 	@Test
 	public void testPushWithNotEmpty() {
-		CardStack cardStack = this.createCardStack();
+	    CardStackInterface cardStack = this.createCardStack();
 		cardStack.push(this.getCards().get(0));
 		cardStack.push(this.getCards().get(1));
 		assertEquals(this.getCards().get(1), cardStack.peek());
@@ -55,7 +55,7 @@ public abstract class CardStackTest {
 
 	@Test
 	public void testPopEmpty() {
-		CardStack cardStack = this.createCardStack();
+	    CardStackInterface cardStack = this.createCardStack();
 		cardStack.push(this.getCards().get(0));
 		assertEquals(this.getCards().get(0), cardStack.pop());
 		assertTrue(cardStack.isEmpty());
@@ -63,7 +63,7 @@ public abstract class CardStackTest {
 	
 	@Test
 	public void testPopNotEmpty() {
-		CardStack cardStack = this.createCardStack();
+	    CardStackInterface cardStack = this.createCardStack();
 		cardStack.push(this.getCards().get(0));
 		cardStack.push(this.getCards().get(1));
 		assertEquals(this.getCards().get(1), cardStack.pop());
@@ -72,19 +72,19 @@ public abstract class CardStackTest {
 
 	@Test(expected = AssertionError.class)
 	public void testPopOnEmptyStack() {
-	    CardStack cardStack = this.createCardStack();
+	    CardStackInterface cardStack = this.createCardStack();
 	    cardStack.pop();
 	}
 	
     @Test(expected = AssertionError.class)
     public void testPeekOnEmptyStack() {
-        CardStack cardStack = this.createCardStack();
+        CardStackInterface cardStack = this.createCardStack();
         cardStack.peek();
     }
 
     @Test(expected = AssertionError.class)
     public void testPushWithNullCard() {
-        CardStack cardStack = this.createCardStack();
+        CardStackInterface cardStack = this.createCardStack();
         cardStack.push(null);
     }
 

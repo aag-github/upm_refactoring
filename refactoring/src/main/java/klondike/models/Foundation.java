@@ -8,6 +8,7 @@ public class Foundation extends CardStack {
 
     public Foundation(Suit suit) {
         super();
+        this.cardStack = new CardStack();
         this.suit = suit;
     }
 

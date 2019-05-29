@@ -14,6 +14,7 @@ public class Pile extends CardStack {
 
 	public Pile(int number, List<Card> cards) {
 		assert cards.size() > 0;
+        this.cardStack = new CardStack();
 		this.number = number;
 		this.numberOfFaceUpCards = 0;
 		this.cards.addAll(cards);

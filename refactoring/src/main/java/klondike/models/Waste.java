@@ -8,6 +8,7 @@ public class Waste extends CardStack {
 public void push(Card card) {
     assert(card != null);
     assert(card.isFacedUp());
+    this.cardStack = new CardStack();
     this.cards.push(card);
 }
 
