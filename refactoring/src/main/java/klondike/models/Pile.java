@@ -10,6 +10,8 @@ public class Pile extends CardStack {
 
 	private int numberOfFaceUpCards;
 
+    private CardStack cardStack;
+
 	public Pile(int number, List<Card> cards) {
 		assert cards.size() > 0;
 		this.number = number;
@@ -88,4 +90,20 @@ public class Pile extends CardStack {
 	public int getNumber() {
 		return this.number;
 	}
+
+    public boolean new_isEmpty() {
+        return this.cardStack.isEmpty();
+    }
+
+    public Card new_peek() {
+        return this.cardStack.peek();
+    }
+
+    public Card new_pop() {
+        return this.cardStack.pop();
+    }
+
+    public void new_push(Card card) {
+        this.cardStack.push(card);
+    }
 }

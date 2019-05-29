@@ -4,6 +4,8 @@ public class Foundation extends CardStack {
 
     private Suit suit;
 
+    private CardStack cardStack;
+
     public Foundation(Suit suit) {
         super();
         this.suit = suit;
@@ -25,5 +27,21 @@ public class Foundation extends CardStack {
 
     public Suit getSuit() {
         return this.suit;
+    }
+
+    public boolean new_isEmpty() {
+        return this.cardStack.isEmpty();
+    }
+
+    public Card new_peek() {
+        return this.cardStack.peek();
+    }
+
+    public Card new_pop() {
+        return this.cardStack.pop();
+    }
+
+    public void new_push(Card card) {
+        this.cardStack.push(card);
     }
 }
