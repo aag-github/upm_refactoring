@@ -42,6 +42,7 @@ public class GameTest {
 			for (int j = 0; j < i + 1; j++) {
 				Card card = pile.peek();
 				pile.remove(1);
+				pile.flipFirstCardIfAllFacedDown();
 				assertTrue(card.isFacedUp());
 			}
 			assertTrue(pile.isEmpty());

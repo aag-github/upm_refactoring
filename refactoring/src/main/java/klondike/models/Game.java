@@ -139,6 +139,7 @@ public class Game {
             return Error.NO_FIT_PILE;
         }
         originPile.remove(numberOfCards);
+        originPile.flipFirstCardIfAllFacedDown();
         destinationPile.push(cards);
         return null;
     }

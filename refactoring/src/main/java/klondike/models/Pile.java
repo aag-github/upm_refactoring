@@ -74,9 +74,12 @@ public class Pile implements CardStackInterface {
 			this.cards.pop();
 			numberOfFaceUpCards--;
 		}
-		if (this.numberOfFaceUpCards == 0 && !this.cards.empty()) {
-			flipFirstCard();
-		}
+	}
+
+	public void flipFirstCardIfAllFacedDown() {
+        if (this.numberOfFaceUpCards == 0 && !this.cards.empty()) {
+            flipFirstCard();
+        }
 	}
 
 	public int numberOfFaceUpCards() {
