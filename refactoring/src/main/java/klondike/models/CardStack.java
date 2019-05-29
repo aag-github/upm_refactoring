@@ -10,11 +10,6 @@ public class CardStack {
         this.cards = new Stack<Card>();
     }
 
-    public Card peek() {
-        assert(this.cards.size() > 0);        
-        return this.cards.peek();
-    }
-
     public Card pop() {
         assert(this.cards.size() > 0);
         return this.cards.pop();

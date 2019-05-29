@@ -35,7 +35,8 @@ public class Foundation implements CardStackInterface {
     }
 
     public Card peek() {
-        return this.cardStack.peek();
+        assert(this.cardStack.cards.size() > 0);        
+        return this.cardStack.cards.peek();
     }
 
     public Card pop() {
