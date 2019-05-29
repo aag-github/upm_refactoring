@@ -1,31 +1,29 @@
 package klondike.models;
 
-public class Waste extends CardStack {
+public class Waste implements CardStackInterface {
 
     private CardStack cardStack;
 
-@Override
+public Waste() {
+    this.cardStack = new CardStack();
+}
+    
 public void push(Card card) {
     assert(card != null);
     assert(card.isFacedUp());
-    this.cardStack = new CardStack();
-    this.cards.push(card);
+    this.cardStack.cards.push(card);
 }
 
-public boolean new_isEmpty() {
+public boolean isEmpty() {
     return this.cardStack.isEmpty();
 }
 
-public Card new_peek() {
+public Card peek() {
     return this.cardStack.peek();
 }
 
-public Card new_pop() {
+public Card pop() {
     return this.cardStack.pop();
-}
-
-public void new_push(Card card) {
-    this.cardStack.push(card);
 }
 
 }

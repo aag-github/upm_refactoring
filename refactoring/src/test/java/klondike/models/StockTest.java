@@ -13,7 +13,7 @@ import klondike.models.builders.EmptyStockBuilder;
 public class StockTest extends CardStackTest {
 
 	@Override
-	protected CardStack createCardStack() {
+	protected CardStackInterface createCardStack() {
 		return new EmptyStockBuilder().build();
 	}
 	

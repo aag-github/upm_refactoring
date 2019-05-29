@@ -4,41 +4,41 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-public class Stock extends CardStack {
+public class Stock implements CardStackInterface {
 
-    private CardStack cardStack;    
+    private CardStack cardStack;
     
     public Stock() {
         super();
         this.cardStack = new CardStack();
         for (Suit suit : Suit.values()) {
             for (Number number : Number.values()) {
-                this.cards.add(new Card(suit, number));
+                this.cardStack.cards.add(new Card(suit, number));
             }
         }
-        Collections.shuffle(this.cards);
+        Collections.shuffle(this.cardStack.cards);
     }
 
     public List<Card> pop(int quantity) {
-        assert 0 < quantity && quantity <= this.cards.size();
-        List<Card> cardsToReturn = new ArrayList<Card>(this.cards.subList(0, quantity));
-        this.cards.removeAll(cardsToReturn);
+        assert 0 < quantity && quantity <= this.cardStack.cards.size();
+        List<Card> cardsToReturn = new ArrayList<Card>(this.cardStack.cards.subList(0, quantity));
+        this.cardStack.cards.removeAll(cardsToReturn);
         return cardsToReturn;
     }
 
-    public boolean new_isEmpty() {
+    public boolean isEmpty() {
         return this.cardStack.isEmpty();
     }
 
-    public Card new_peek() {
+    public Card peek() {
         return this.cardStack.peek();
     }
 
-    public Card new_pop() {
+    public Card pop() {
         return this.cardStack.pop();
     }
 
-    public void new_push(Card card) {
+    public void push(Card card) {
         this.cardStack.push(card);
     }
 }
