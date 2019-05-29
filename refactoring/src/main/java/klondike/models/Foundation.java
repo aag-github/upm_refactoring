@@ -1,19 +1,21 @@
 package klondike.models;
 
+import java.util.Stack;
+
 public class Foundation implements CardStackInterface {
 
     private Suit suit;
 
-    private CardStack cardStack;
+    private Stack<Card> cardStack;
 
     public Foundation(Suit suit) {
         super();
-        this.cardStack = new CardStack();
+        this.cardStack = new Stack<Card>();
         this.suit = suit;
     }
 
     public boolean isComplete() {
-        return this.cardStack.cards.size() == Number.values().length;
+        return this.cardStack.size() == Number.values().length;
     }
 
     public boolean fitsIn(Card card) {
@@ -31,21 +33,21 @@ public class Foundation implements CardStackInterface {
     }
 
     public boolean isEmpty() {
-        return this.cardStack.cards.empty();
+        return this.cardStack.empty();
     }
 
     public Card peek() {
-        assert(this.cardStack.cards.size() > 0);        
-        return this.cardStack.cards.peek();
+        assert(this.cardStack.size() > 0);        
+        return this.cardStack.peek();
     }
 
     public Card pop() {
-        assert(this.cardStack.cards.size() > 0);
-        return this.cardStack.cards.pop();
+        assert(this.cardStack.size() > 0);
+        return this.cardStack.pop();
     }
 
     public void push(Card card) {
         assert(card != null);
-        this.cardStack.cards.push(card);
+        this.cardStack.push(card);
     }
 }
