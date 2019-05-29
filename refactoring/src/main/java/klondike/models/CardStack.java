@@ -9,10 +9,4 @@ public class CardStack {
     public CardStack() {
         this.cards = new Stack<Card>();
     }
-
-    public void push(Card card) {
-        assert(card != null);
-        this.cards.push(card);
-    }
-
 }

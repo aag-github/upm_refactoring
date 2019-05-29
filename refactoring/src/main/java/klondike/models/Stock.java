@@ -41,6 +41,7 @@ public class Stock implements CardStackInterface {
     }
 
     public void push(Card card) {
-        this.cardStack.push(card);
+        assert(card != null);
+        this.cardStack.cards.push(card);
     }
 }

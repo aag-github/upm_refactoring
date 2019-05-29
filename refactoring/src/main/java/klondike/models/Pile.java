@@ -22,9 +22,9 @@ public class Pile implements CardStackInterface {
 	}
 
 	public void push(Card card) {
-        assert(card != null);
+	    assert(card != null);
 		assert this.fitsIn(card);
-		this.cardStack.push(card);
+		this.cardStack.cards.push(card);
 		this.numberOfFaceUpCards++;
 	}
 
