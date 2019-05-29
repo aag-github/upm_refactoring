@@ -29,8 +29,9 @@ public class Pile implements CardStackInterface {
 	}
 
 	public Card pop() {
+        assert(this.cardStack.cards.size() > 0);
 		this.numberOfFaceUpCards--;
-		return this.cardStack.pop();
+        return this.cardStack.cards.pop();
 	}
 
 	private void flipFirstCard() {

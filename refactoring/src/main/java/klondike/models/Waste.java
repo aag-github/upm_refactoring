@@ -24,7 +24,8 @@ public Card peek() {
 }
 
 public Card pop() {
-    return this.cardStack.pop();
+    assert(this.cardStack.cards.size() > 0);
+    return this.cardStack.cards.pop();
 }
 
 }

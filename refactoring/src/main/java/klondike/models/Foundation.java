@@ -40,7 +40,8 @@ public class Foundation implements CardStackInterface {
     }
 
     public Card pop() {
-        return this.cardStack.pop();
+        assert(this.cardStack.cards.size() > 0);
+        return this.cardStack.cards.pop();
     }
 
     public void push(Card card) {
