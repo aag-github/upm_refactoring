@@ -44,7 +44,8 @@ public class Game {
         if (this.stock.isEmpty()) {
             return Error.EMPTY_STOCK;
         }
-        this.waste.push(this.stock.pop().flip());
+        this.waste.push(this.stock.peek().flip());
+        this.stock.drop();
         return null;
     }
 
@@ -58,7 +59,8 @@ public class Game {
         if (!foundation.fitsIn(card)) {
             return Error.NO_FIT_FOUNDATION;
         }
-        foundation.push(this.waste.pop());
+        foundation.push(this.waste.peek());
+        this.waste.drop();
         return null;
     }
 
@@ -70,7 +72,8 @@ public class Game {
             return Error.EMPTY_WASTE;
         }
         while (!this.waste.isEmpty()) {
-            this.stock.push(this.waste.pop().flip());
+            this.stock.push(this.waste.peek().flip());
+            this.waste.drop();
         }
         return null;
     }
@@ -85,7 +88,9 @@ public class Game {
         if (!pile.fitsIn(card)) {
             return Error.NO_FIT_PILE;
         }
-        pile.push(Arrays.asList(this.waste.pop()));
+        pile.push(Arrays.asList(this.waste.peek()));
+        this.waste.drop();
+        
         return null;
     }
 
@@ -101,7 +106,8 @@ public class Game {
         if (!pile.fitsIn(card)) {
             return Error.NO_FIT_PILE;
         }
-        pile.push(Arrays.asList(foundation.pop()));
+        pile.push(Arrays.asList(foundation.peek()));
+        foundation.drop();
         return null;
     }
 
@@ -118,7 +124,7 @@ public class Game {
             return Error.NO_FIT_FOUNDATION;
         }
         foundation.push(card);
-        pile.remove(1);
+        pile.drop();
         return null;
     }
 
@@ -138,7 +144,7 @@ public class Game {
         if (!destinationPile.fitsIn(cards.get(cards.size() - 1))) {
             return Error.NO_FIT_PILE;
         }
-        originPile.remove(numberOfCards);
+        originPile.drop(numberOfCards);
         originPile.flipFirstCardIfAllFacedDown();
         destinationPile.push(cards);
         return null;

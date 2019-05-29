@@ -25,9 +25,9 @@ public Card peek() {
     return this.cards.peek();
 }
 
-public Card pop() {
+public void drop() {
     assert(this.cards.size() > 0);
-    return this.cards.pop();
+    this.cards.pop();
 }
 
 }

@@ -6,7 +6,7 @@ public interface CardStackInterface {
 
     public Card peek();
 
-    public Card pop();
+    public void drop();
 
     public void push(Card card);
 }

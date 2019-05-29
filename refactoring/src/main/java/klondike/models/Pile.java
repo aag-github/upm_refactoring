@@ -28,10 +28,8 @@ public class Pile implements CardStackInterface {
 		this.numberOfFaceUpCards++;
 	}
 
-	public Card pop() {
-        assert(this.cards.size() > 0);
-		this.numberOfFaceUpCards--;
-        return this.cards.pop();
+	public void drop() {
+	    drop(1);
 	}
 
 	private void flipFirstCard() {
@@ -68,7 +66,7 @@ public class Pile implements CardStackInterface {
 		this.numberOfFaceUpCards += cards.size();
 	}
 
-	public void remove(int numberOfCards) {
+	public void drop(int numberOfCards) {
 		assert numberOfCards <= this.numberOfFaceUpCards;
 		for (int i = 0; i < numberOfCards; i++) {
 			this.cards.pop();

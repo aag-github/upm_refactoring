@@ -57,7 +57,7 @@ public abstract class CardStackTest {
 	public void testPopEmpty() {
 	    CardStackInterface cardStack = this.createCardStack();
 		cardStack.push(this.getCards().get(0));
-		assertEquals(this.getCards().get(0), cardStack.pop());
+		cardStack.drop();
 		assertTrue(cardStack.isEmpty());
 	}
 	
@@ -66,14 +66,14 @@ public abstract class CardStackTest {
 	    CardStackInterface cardStack = this.createCardStack();
 		cardStack.push(this.getCards().get(0));
 		cardStack.push(this.getCards().get(1));
-		assertEquals(this.getCards().get(1), cardStack.pop());
+		cardStack.drop();
 		assertEquals(this.getCards().get(0), cardStack.peek());
 	}
 
 	@Test(expected = AssertionError.class)
 	public void testPopOnEmptyStack() {
 	    CardStackInterface cardStack = this.createCardStack();
-	    cardStack.pop();
+	    cardStack.drop();
 	}
 	
     @Test(expected = AssertionError.class)
