@@ -16,7 +16,7 @@ import klondike.models.builders.PileBuilder;
 public class PileTest extends CardStackTest {
 
 	@Override
-	protected CardStack createCardStack() {
+	protected CardStackInterface createCardStack() {
 		return new PileBuilder().build();
 	}
 

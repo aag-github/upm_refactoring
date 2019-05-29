@@ -17,7 +17,7 @@ public class FoundationTest extends CardStackTest {
 	private Suit suit = Suit.PIKES;
 	
 	@Override
-	protected CardStack createCardStack() {
+	protected CardStackInterface createCardStack() {
 		return new FoundationBuilder().suit(this.suit).build();
 	}
 	

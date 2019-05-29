@@ -1,6 +1,6 @@
 package klondike.models;
 
-public class Foundation extends CardStack {
+public class Foundation implements CardStackInterface {
 
     private Suit suit;
 
@@ -13,7 +13,7 @@ public class Foundation extends CardStack {
     }
 
     public boolean isComplete() {
-        return this.cards.size() == Number.values().length;
+        return this.cardStack.cards.size() == Number.values().length;
     }
 
     public boolean fitsIn(Card card) {
@@ -30,19 +30,19 @@ public class Foundation extends CardStack {
         return this.suit;
     }
 
-    public boolean new_isEmpty() {
+    public boolean isEmpty() {
         return this.cardStack.isEmpty();
     }
 
-    public Card new_peek() {
+    public Card peek() {
         return this.cardStack.peek();
     }
 
-    public Card new_pop() {
+    public Card pop() {
         return this.cardStack.pop();
     }
 
-    public void new_push(Card card) {
+    public void push(Card card) {
         this.cardStack.push(card);
     }
 }
