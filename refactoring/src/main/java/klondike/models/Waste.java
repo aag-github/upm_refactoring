@@ -4,30 +4,30 @@ import java.util.Stack;
 
 public class Waste implements CardStackInterface {
 
-    private Stack<Card> cardStack;
+    private Stack<Card> cards;
 
 public Waste() {
-    this.cardStack = new Stack<Card>();
+    this.cards = new Stack<Card>();
 }
     
 public void push(Card card) {
     assert(card != null);
     assert(card.isFacedUp());
-    this.cardStack.push(card);
+    this.cards.push(card);
 }
 
 public boolean isEmpty() {
-    return this.cardStack.empty();
+    return this.cards.empty();
 }
 
 public Card peek() {
-    assert(this.cardStack.size() > 0);        
-    return this.cardStack.peek();
+    assert(this.cards.size() > 0);        
+    return this.cards.peek();
 }
 
 public Card pop() {
-    assert(this.cardStack.size() > 0);
-    return this.cardStack.pop();
+    assert(this.cards.size() > 0);
+    return this.cards.pop();
 }
 
 }

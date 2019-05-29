@@ -7,42 +7,42 @@ import java.util.Stack;
 
 public class Stock implements CardStackInterface {
 
-    private Stack<Card> cardStack;
+    private Stack<Card> cards;
     
     public Stock() {
         super();
-        this.cardStack = new Stack<Card>();
+        this.cards = new Stack<Card>();
         for (Suit suit : Suit.values()) {
             for (Number number : Number.values()) {
-                this.cardStack.add(new Card(suit, number));
+                this.cards.add(new Card(suit, number));
             }
         }
-        Collections.shuffle(this.cardStack);
+        Collections.shuffle(this.cards);
     }
 
     public List<Card> pop(int quantity) {
-        assert 0 < quantity && quantity <= this.cardStack.size();
-        List<Card> cardsToReturn = new ArrayList<Card>(this.cardStack.subList(0, quantity));
-        this.cardStack.removeAll(cardsToReturn);
+        assert 0 < quantity && quantity <= this.cards.size();
+        List<Card> cardsToReturn = new ArrayList<Card>(this.cards.subList(0, quantity));
+        this.cards.removeAll(cardsToReturn);
         return cardsToReturn;
     }
 
     public boolean isEmpty() {
-        return this.cardStack.empty();
+        return this.cards.empty();
     }
 
     public Card peek() {
-        assert(this.cardStack.size() > 0);        
-        return this.cardStack.peek();
+        assert(this.cards.size() > 0);        
+        return this.cards.peek();
     }
 
     public Card pop() {
-        assert(this.cardStack.size() > 0);
-        return this.cardStack.pop();
+        assert(this.cards.size() > 0);
+        return this.cards.pop();
     }
 
     public void push(Card card) {
         assert(card != null);
-        this.cardStack.push(card);
+        this.cards.push(card);
     }
 }

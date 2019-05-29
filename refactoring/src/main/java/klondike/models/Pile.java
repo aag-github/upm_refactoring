@@ -10,48 +10,48 @@ public class Pile implements CardStackInterface {
 
 	private int numberOfFaceUpCards;
 
-    private Stack<Card> cardStack;
+    private Stack<Card> cards;
 
 	public Pile(int number, List<Card> cards) {
 		assert cards.size() > 0;
-        this.cardStack = new Stack<Card>();
+        this.cards = new Stack<Card>();
 		this.number = number;
 		this.numberOfFaceUpCards = 0;
-		this.cardStack.addAll(cards);
+		this.cards.addAll(cards);
 		this.flipFirstCard();
 	}
 
 	public void push(Card card) {
 	    assert(card != null);
 		assert this.fitsIn(card);
-		this.cardStack.push(card);
+		this.cards.push(card);
 		this.numberOfFaceUpCards++;
 	}
 
 	public Card pop() {
-        assert(this.cardStack.size() > 0);
+        assert(this.cards.size() > 0);
 		this.numberOfFaceUpCards--;
-        return this.cardStack.pop();
+        return this.cards.pop();
 	}
 
 	private void flipFirstCard() {
-		assert !this.cardStack.empty()
+		assert !this.cards.empty()
 		        && this.numberOfFaceUpCards == 0 
-		        && !this.cardStack.peek().isFacedUp();
+		        && !this.cards.peek().isFacedUp();
 		
-		this.cardStack.peek().flip();
+		this.cards.peek().flip();
 		this.numberOfFaceUpCards++;
 	}
 
 	public boolean fitsIn(Card card) {
 		assert card != null;
 		
-		if (this.cardStack.empty()) {
+		if (this.cards.empty()) {
 		    return (card.getNumber() == Number.KING);
 		}
 		else {
-		    boolean cardIsNextLower = this.cardStack.peek().isNumberNextTo(card);
-		    boolean cardHasDifferentColor = this.cardStack.peek().getColor() != card.getColor();
+		    boolean cardIsNextLower = this.cards.peek().isNumberNextTo(card);
+		    boolean cardHasDifferentColor = this.cards.peek().getColor() != card.getColor();
 		    
 		    return cardIsNextLower && cardHasDifferentColor;
 		}
@@ -59,22 +59,22 @@ public class Pile implements CardStackInterface {
 
 	public List<Card> peek(int numberOfCards) {
 		assert numberOfCards <= this.numberOfFaceUpCards;
-		return new ArrayList<Card>(this.cardStack.subList(this.cardStack.size() - numberOfCards, this.cardStack.size()));
+		return new ArrayList<Card>(this.cards.subList(this.cards.size() - numberOfCards, this.cards.size()));
 	}
 
 	public void push(List<Card> cards) {
 		assert cards != null;
-		this.cardStack.addAll(cards);
+		this.cards.addAll(cards);
 		this.numberOfFaceUpCards += cards.size();
 	}
 
 	public void remove(int numberOfCards) {
 		assert numberOfCards <= this.numberOfFaceUpCards;
 		for (int i = 0; i < numberOfCards; i++) {
-			this.cardStack.pop();
+			this.cards.pop();
 			numberOfFaceUpCards--;
 		}
-		if (this.numberOfFaceUpCards == 0 && !this.cardStack.empty()) {
+		if (this.numberOfFaceUpCards == 0 && !this.cards.empty()) {
 			flipFirstCard();
 		}
 	}
@@ -84,7 +84,7 @@ public class Pile implements CardStackInterface {
 	}
 
 	public Stack<Card> getCards() {
-		return this.cardStack;
+		return this.cards;
 	}
 
 	public int getNumber() {
@@ -92,11 +92,11 @@ public class Pile implements CardStackInterface {
 	}
 
     public boolean isEmpty() {
-        return this.cardStack.empty();
+        return this.cards.empty();
     }
 
     public Card peek() {
-        assert(this.cardStack.size() > 0);        
-        return this.cardStack.peek();
+        assert(this.cards.size() > 0);        
+        return this.cards.peek();
     }
 }

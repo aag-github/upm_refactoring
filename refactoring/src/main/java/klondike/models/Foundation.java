@@ -6,16 +6,16 @@ public class Foundation implements CardStackInterface {
 
     private Suit suit;
 
-    private Stack<Card> cardStack;
+    private Stack<Card> cards;
 
     public Foundation(Suit suit) {
         super();
-        this.cardStack = new Stack<Card>();
+        this.cards = new Stack<Card>();
         this.suit = suit;
     }
 
     public boolean isComplete() {
-        return this.cardStack.size() == Number.values().length;
+        return this.cards.size() == Number.values().length;
     }
 
     public boolean fitsIn(Card card) {
@@ -33,21 +33,21 @@ public class Foundation implements CardStackInterface {
     }
 
     public boolean isEmpty() {
-        return this.cardStack.empty();
+        return this.cards.empty();
     }
 
     public Card peek() {
-        assert(this.cardStack.size() > 0);        
-        return this.cardStack.peek();
+        assert(this.cards.size() > 0);        
+        return this.cards.peek();
     }
 
     public Card pop() {
-        assert(this.cardStack.size() > 0);
-        return this.cardStack.pop();
+        assert(this.cards.size() > 0);
+        return this.cards.pop();
     }
 
     public void push(Card card) {
         assert(card != null);
-        this.cardStack.push(card);
+        this.cards.push(card);
     }
 }
