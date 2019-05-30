@@ -99,7 +99,7 @@ public class GameTest {
 	@Test
 	public void testMoveFromWasteToFoundation() {
 		Game game = new Game();
-		Card card = this.setWaste(game, Number.AS);
+		Card card = this.setWaste(game, Number.ACE);
 		assertEquals(null, game.moveFromWasteToFoundation(card.getSuit()));
 		assertEquals(card, game.getFoundations().get(card.getSuit()).peek());
 		assertTrue(game.getWaste().isEmpty());
@@ -166,7 +166,7 @@ public class GameTest {
 	public void testMoveFromPileToFoundation() {
 		Game game = new Game();
 		Suit suit = Suit.HEARTS;
-		Card card = this.setPile(game, 0, Number.AS, suit);
+		Card card = this.setPile(game, 0, Number.ACE, suit);
 		assertEquals(null, game.moveFromPileToFoundation(0,suit ));
 		assertEquals(card, game.getFoundations().get(card.getSuit()).peek());
 		assertTrue(game.getWaste().isEmpty());

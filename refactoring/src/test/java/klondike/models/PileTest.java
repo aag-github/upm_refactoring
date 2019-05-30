@@ -54,7 +54,7 @@ public class PileTest extends CardStackTest {
 	@Test
 	public void testGetTopOne() {
 		CardListBuilder cardListBuilder = new CardListBuilder();
-		cardListBuilder.card(new CardBuilder().number(Number.AS).suit(Suit.DIAMONDS).facedUp().build());
+		cardListBuilder.card(new CardBuilder().number(Number.ACE).suit(Suit.DIAMONDS).facedUp().build());
 		Pile pile = new PileBuilder().card(new CardBuilder().number(Number.TWO).suit(Suit.PIKES).build()).build();
 		this.testGetTop(cardListBuilder.build(), pile);
 	}

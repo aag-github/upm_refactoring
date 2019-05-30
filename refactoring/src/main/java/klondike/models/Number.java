@@ -1,7 +1,7 @@
 package klondike.models;
 
 public enum Number {
-    AS,
+    ACE,
     TWO,
     THREE,
     FOUR,

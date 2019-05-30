@@ -25,7 +25,7 @@ public class CardTest {
 
 	@Test
 	public void testIsNextTo() {
-		this.testIsNextTo(Number.TWO , Number.AS);
+		this.testIsNextTo(Number.TWO , Number.ACE);
 		this.testIsNextTo(Number.KING, Number.QUEEN);
 	}
 
@@ -37,8 +37,8 @@ public class CardTest {
 	
 	@Test
 	public void testIsNotNextTo() {
-		this.testIsNotNextTo(Number.AS, Number.TWO);
-		this.testIsNotNextTo(Number.AS, Number.KING);
+		this.testIsNotNextTo(Number.ACE, Number.TWO);
+		this.testIsNotNextTo(Number.ACE, Number.KING);
 	}
 
 	void testIsNotNextTo(Number firstNumber, Number secondNumber) {

@@ -14,7 +14,7 @@ public class CardBuilder {
     
     public CardBuilder() {
     	this.suit = Suit.CLOVERS;
-    	this.number = Number.AS;
+    	this.number = Number.ACE;
     	this.facedUp = false;
     }
     

@@ -24,7 +24,7 @@ public class FoundationTest extends CardStackTest {
 	@Override
 	protected List<Card> getCards(){
 		List<Card> cards = new ArrayList<Card>();
-		cards.add(new CardBuilder().number(Number.AS).suit(this.suit).facedUp().build());
+		cards.add(new CardBuilder().number(Number.ACE).suit(this.suit).facedUp().build());
 		cards.add(new CardBuilder().number(Number.TWO).suit(this.suit).facedUp().build());
 		return cards;
 	}
@@ -43,13 +43,13 @@ public class FoundationTest extends CardStackTest {
 	@Test 
 	public void testFitsInEmptyWithAs() {
 		Foundation foundation = new FoundationBuilder().suit(this.suit).build();
-		assertTrue(foundation.fitsIn(new CardBuilder().number(Number.AS).suit(this.suit).build()));
+		assertTrue(foundation.fitsIn(new CardBuilder().number(Number.ACE).suit(this.suit).build()));
 	}
 	
 	@Test 
 	public void testFitsInEmptyWithAsWrongSuit() {
 		Foundation foundation = new FoundationBuilder().suit(this.suit).build();
-		assertFalse(foundation.fitsIn(new CardBuilder().number(Number.AS).suit(Suit.CLOVERS).build()));
+		assertFalse(foundation.fitsIn(new CardBuilder().number(Number.ACE).suit(Suit.CLOVERS).build()));
 	}
 	
 	@Test 

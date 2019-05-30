@@ -22,7 +22,7 @@ public class Foundation implements CardStackInterface {
         assert card != null;
 
         boolean cardIsSameSuiteAsPile = card.getSuit() == this.suit;
-        boolean cardIsAnAce = (card.getNumber() == Number.AS);
+        boolean cardIsAnAce = (card.getNumber() == Number.ACE);
         boolean cardIsNextHigher = !this.isEmpty() && card.isNumberNextTo(this.peek()); 
         return (cardIsSameSuiteAsPile) 
                && (cardIsAnAce || cardIsNextHigher); 
